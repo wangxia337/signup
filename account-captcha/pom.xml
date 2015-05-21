@@ -10,14 +10,21 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>account-persist</artifactId>
-    <name>Account Persist</name>
+    <groupId>com.xwang.maven.account</groupId>
+    <artifactId>account-captcha</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
+            <groupId>com.google.code.kaptcha</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>2.3</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>1.0-rc2</version>
         </dependency>
 
         <dependency>
@@ -39,27 +46,27 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>cobertura</groupId>
+            <artifactId>cobertura</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 
-    <build>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <repositories>
+        <repository>
+            <id>sonatype-forge</id>
+            <name>Sonatype Forge</name>
+            <url>http://repository.sonatype.org/content/groups/forge/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 
 </project>
