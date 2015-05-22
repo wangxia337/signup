@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="accountCaptchaService" class="com.xwang.maven.account.captcha.AccountCaptchaServiceImpl">
+    </bean>
+
+    <bean id="accountPersistService" class="com.xwang.maven.account.persist.AccountPersistServiceImpl">
+        <property name="file" value="${persist.file}" />
+    </bean>
+
+    <bean id="accountService" class="com.xwang.maven.account.service.AccountServiceImpl">
+        <property name="accountEmailService" value=""/>
+        <property name="accountPersistService" value="accountPersistService"/>
+        <property name="accountCaptchaService" ref="accountCaptchaService"/>
+    </bean>
+</beans>
